@@ -1,0 +1,9 @@
+$default_color: rgb(195, 94, 185);
+$white: rgb(0, 208, 255);
+$source_titles: Agency FB;
+$image: "./assets/fondo.jpg";
+//TAREA
+$textbox_state: true !default;
+$color_palette:( primary: $default_color, secundary:yellow, alert: pink, );
+$buttons-state: true !default;
+$buttons-colors:( primary: $default_color, secundary:yellow, alert: turquoise, );

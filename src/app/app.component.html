@@ -1,0 +1,49 @@
+<body>
+    <h1>Formulario | Richard Vargas</h1>
+    <div id="login-section">
+        <div class="login-box">
+
+
+            <form [formGroup]="registerForm">
+                <div class="textbox">
+                    <input class="form-control" type="text" placeholder="Nombres" formControlName="names">
+                </div>
+                <div>
+                    <span *ngIf="registerForm.controls['names'].errors?.pattern" id="errors"> Nombres invalidos </span>
+                </div>
+
+                <div class="textbox">
+                    <input class="form-control" type="text" placeholder="Apellidos" formControlName="lastnames">
+                </div>
+                <div>
+                    <span *ngIf="registerForm.controls['lastnames'].errors?.pattern" id="errors"> Apellidos invalidos </span>
+                </div>
+
+                <div class="textbox">
+                    <input class="form-control" type="text" placeholder="Correo" formControlName="mail">
+                </div>
+                <div>
+                    <span *ngIf="registerForm.controls['mail'].errors?.pattern" id="errors"> Ingrese un correo electrónico valido </span>
+                </div>
+
+                <div class="textbox">
+                    <input class="form-control" type="text" placeholder="Celular" formControlName="phone">
+                    <div formArrayName="alternativePhone">
+                        <div *ngFor="let item of alternativePhone.controls; let i=index" [formGroupName]="i">
+                            <input class="form-control" type="text" placeholder="Celular (Opcional)" formControlName="alternativePhone">
+                        </div>
+                    </div>
+                    <a class="dynamic" type="button" (click)="addAlternativePhone()"><strong>+</strong></a>
+                </div>
+                <div>
+                    <span *ngIf="registerForm.controls['phone'].errors?.pattern" id="errors"> Celular invalido </span>
+                </div>
+                <button (click)="submit()" type="button" class="btn">Enviar</button>
+            </form>
+            {{registerForm.value | json }}
+        </div>
+    </div>
+
+</body>
+
+<router-outlet></router-outlet>
